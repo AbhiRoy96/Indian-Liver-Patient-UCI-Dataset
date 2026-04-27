@@ -22,7 +22,59 @@ This data set contains 416 liver patient records and 167 non liver patient recor
 
 Any patient whose age exceeded 89 is listed as being of age "90".
 
-### Source
+---
+
+## Model
+
+A shallow MLP implemented in TensorFlow with the following architecture:
+
+- **Input layer** — 10 features
+- **Hidden layer** — 40 neurons, ReLU activation
+- **Output layer** — 2 neurons (softmax cross-entropy loss)
+- **Optimizer** — Adam (`lr = 0.01`)
+- **Epochs** — 1,000,000 (logging every 100,000)
+
+Labels are one-hot encoded: `[1, 0]` for liver patient, `[0, 1]` for non-liver patient. The dataset is split 80/20 for training and testing using `sklearn`.
+
+---
+
+## Requirements
+
+```
+tensorflow
+numpy
+pandas
+scikit-learn
+seaborn
+matplotlib
+```
+
+Install with:
+
+```bash
+pip install tensorflow numpy pandas scikit-learn seaborn matplotlib
+```
+
+---
+
+## Usage
+
+1. Clone the repo and place `ILPD.csv` in the working directory (or update the path in the script).
+2. Run the classifier:
+
+```bash
+python ilpd_mlp.py
+```
+
+Training will log cost at every 100,000 epochs and print final accuracy on the test set.
+
+---
+
+## Data Source
+
+Originally donated to UCI by:
+
+UCI dataset link: https://archive.ics.uci.edu/ml/datasets/ILPD+(Indian+Liver+Patient+Dataset)
 
 1. Bendi Venkata Ramana
 ramana.bendi '@' gmail.com
@@ -45,3 +97,9 @@ Tekkali - 532201, Andhra Pradesh, India.
 
 
 Date received: May, 2012
+
+---
+
+## License
+
+MIT — see [LICENSE](./LICENSE) for details.
